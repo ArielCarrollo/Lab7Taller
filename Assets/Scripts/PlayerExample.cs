@@ -18,7 +18,17 @@ public class PlayerExample : BasePlayerController, IAimable, IMoveable, IAttacka
             Debug.Log("Aim from " + this.name);
         }
     }
+    private IAttackable attackStrategy;
 
+    public void SetAttackStrategy(IAttackable newStrategy)
+    {
+        attackStrategy = newStrategy;
+    }
+
+    public void Attack(Vector2 position)
+    {
+        attackStrategy?.Attack(position);
+    }
     protected override void Awake()
     {
         base.Awake();
@@ -38,8 +48,5 @@ public class PlayerExample : BasePlayerController, IAimable, IMoveable, IAttacka
         Debug.Log("Move from " + this.name);
     }
 
-    public void Attack(Vector2 position)
-    {
-        Debug.Log("Attack from " + this.name);
-    }
+
 }

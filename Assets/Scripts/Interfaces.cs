@@ -14,10 +14,3 @@ public interface IAttackable
 {
     void Attack(Vector2 position);
 }
-public class PlayerControlller : IAttackable
-{
-    public void Attack(Vector2 position)
-    {
-        throw new System.NotImplementedException();
-    }
-}
