@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerExample : BasePlayerController, IAimable, IMoveable, IAttackable
+public class PlayerExample : BasePlayerController, IAimable,IAttackable
 {
     public Vector2 Position
     {
