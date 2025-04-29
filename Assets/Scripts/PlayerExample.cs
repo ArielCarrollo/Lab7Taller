@@ -18,22 +18,28 @@ public class PlayerExample : BasePlayerController, IAimable, IMoveable, IAttacka
             Debug.Log("Aim from " + this.name);
         }
     }
-    private IAttackable attackStrategy;
-
-    public void SetAttackStrategy(IAttackable newStrategy)
-    {
-        attackStrategy = newStrategy;
-    }
-
+    [SerializeField] private List<MonoBehaviour> attackBehaviors;
+    private List<IAttackable> attackStrategies = new List<IAttackable>();
+    private int currentAttackIndex = 0;
     public void Attack(Vector2 position)
     {
-        attackStrategy?.Attack(position);
+        if (attackStrategies.Count > 0)
+        {
+            attackStrategies[currentAttackIndex].Attack(position);
+        }
     }
     protected override void Awake()
     {
         base.Awake();
 
         Debug.Log("Child Awake");
+        foreach (var behavior in attackBehaviors)
+        {
+            if (behavior is IAttackable attack)
+            {
+                attackStrategies.Add(attack);
+            }
+        }
     }
 
     protected override void Start()
@@ -48,5 +54,13 @@ public class PlayerExample : BasePlayerController, IAimable, IMoveable, IAttacka
         Debug.Log("Move from " + this.name);
     }
 
+    public void NextAttack()
+    {
+        currentAttackIndex = (currentAttackIndex + 1) % attackStrategies.Count;
+    }
 
+    public void PreviousAttack()
+    {
+        currentAttackIndex = (currentAttackIndex - 1 + attackStrategies.Count) % attackStrategies.Count;
+    }
 }

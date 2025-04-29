@@ -27,7 +27,25 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "d7951c09-a0b3-4b71-8dcf-66425955a74c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackNext",
+                    "type": "Button",
+                    "id": "32ef61d3-56c8-4913-9033-73c6113877e2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackPrevious",
+                    "type": "Button",
+                    "id": "381cc22d-70c1-438c-a1b9-a8ae02aa860a",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -108,6 +126,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "151631a8-0cb4-4fe3-9feb-6751a8b00233",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48d35b04-65e8-48be-9a94-d9246d1af186",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackPrevious",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

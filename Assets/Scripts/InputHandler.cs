@@ -10,33 +10,43 @@ public class InputHandler : MonoBehaviour
 
     private IAimable _characterAim;
     private IMoveable _characterMovement;
-    private IAttackable _characterAttack;
+    private PlayerExample _playerExample;
 
     private void Awake()
     {
         _characterAim = PlayerController.GetComponent<IAimable>();
         _characterMovement = PlayerController.GetComponent<IMoveable>();
-        _characterAttack = PlayerController.GetComponent<IAttackable>();
+        _playerExample = PlayerController.GetComponent<PlayerExample>();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        //Debug.Log(context.ReadValue<Vector2>());
-
         _characterMovement.Move(context.ReadValue<Vector2>());
     }
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        //Debug.Log(context.ReadValue<Vector2>());
-
         _characterAim.Position = context.ReadValue<Vector2>();
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        //Debug.Log(context.phase);
+        _playerExample.Attack(_characterAim.Position);
+    }
 
-        _characterAttack.Attack(_characterAim.Position);
+    public void OnNextAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _playerExample.NextAttack();
+        }
+    }
+
+    public void OnPreviousAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _playerExample.PreviousAttack();
+        }
     }
 }

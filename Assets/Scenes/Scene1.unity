@@ -646,7 +646,6 @@ GameObject:
   - component: {fileID: 1441734778}
   - component: {fileID: 1441734777}
   - component: {fileID: 1441734779}
-  - component: {fileID: 1441734783}
   - component: {fileID: 1441734782}
   - component: {fileID: 1441734781}
   - component: {fileID: 1441734780}
@@ -713,6 +712,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidBody: {fileID: 1441734777}
+  attackBehaviors:
+  - {fileID: 1441734782}
+  - {fileID: 1441734780}
+  - {fileID: 1441734781}
 --- !u!114 &1441734780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,22 +756,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8857983350125869945, guid: 3ea35f5c79495df4d89a9ce453a2c638, type: 3}
---- !u!114 &1441734783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441734776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8810cf0ea6c90f24ea88241d15c8b986, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1441734779}
-  bulletAttack: {fileID: 1441734782}
-  explosionAttack: {fileID: 1441734780}
-  dashAttack: {fileID: 1441734781}
 --- !u!1 &1691379917
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +860,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d7951c09-a0b3-4b71-8dcf-66425955a74c
     m_ActionName: 'Game/Attack[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1691379918}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnNextAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 32ef61d3-56c8-4913-9033-73c6113877e2
+    m_ActionName: 'Game/AttackChange[/Keyboard/q,/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1691379918}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: OnPreviousAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 381cc22d-70c1-438c-a1b9-a8ae02aa860a
+    m_ActionName: 'Game/AttackPrevious[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game
